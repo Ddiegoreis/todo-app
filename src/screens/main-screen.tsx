@@ -1,11 +1,11 @@
 import React, { useCallback, useState } from 'react'
-import { Center, VStack, Fab, Icon, useColorModeValue } from 'native-base'
+import { VStack, Fab, Icon, useColorModeValue } from 'native-base'
 import { AntDesign } from '@expo/vector-icons'
 import shortid from 'shortid'
 
-import ThemeToggle from '../components/theme-toggle'
 import TaskList from '../components/task-list'
-import { useColorScheme } from 'react-native'
+import AnimatedColorBox from '../components/animated-color-box'
+import MastHead from '../components/masthead'
 
 const initialData = [
 	{
@@ -45,7 +45,7 @@ export default function MainScreen() {
 
 	const handleChangeTaskItemSubject = useCallback((item, newSubject) => {
 		setData((prev) => {
-			const newData = [...data]
+			const newData = [...prev]
 			const index = prev.indexOf(item)
 
 			newData[index] = {
@@ -74,11 +74,22 @@ export default function MainScreen() {
 	}, [])
 
 	return (
-		<Center
-			_dark={{ bg: 'blueGray.900' }}
-			_light={{ bg: 'coolGray.50' }}
-			flex={1}>
-			<VStack space={5} alignItems='center' w='full'>
+		<AnimatedColorBox
+			flex={1}
+			bg={useColorModeValue('warmGray.50', 'primary.900')}
+			w='full'>
+			<MastHead
+				title='Seja bem vindo!'
+				image={require('../assets/masthead.png')}></MastHead>
+
+			<VStack
+				flex={1}
+				space={1}
+				mt='-20px'
+				bg={useColorModeValue('warmGray.50', 'primary.900')}
+				borderTopLeftRadius='20px'
+				borderTopRightRadius='20px'
+				pt='20px'>
 				<TaskList
 					data={data}
 					editingItemId={editingItemId}
@@ -88,7 +99,6 @@ export default function MainScreen() {
 					onRemoveItem={handleRemoveItem}
 					onToggleItem={handleToggleTaskItem}
 				/>
-				<ThemeToggle />
 			</VStack>
 
 			<Fab
@@ -113,6 +123,6 @@ export default function MainScreen() {
 					setEditingItemId(id)
 				}}
 			/>
-		</Center>
+		</AnimatedColorBox>
 	)
 }
