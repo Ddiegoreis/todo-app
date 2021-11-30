@@ -54,7 +54,7 @@ const Sidebar = (props: DrawerContentComponentProps) => {
 					/>
 				</HStack>
 				<Avatar
-					source={require('../assets/profile-image.png')}
+					source={require('../assets/profile.png')}
 					size='xl'
 					borderRadius={100}
 					mb={6}
@@ -68,13 +68,13 @@ const Sidebar = (props: DrawerContentComponentProps) => {
 					active={currentRout === 'Main'}
 					onPress={handlePressMenuMain}
 					icon='inbox'>
-					Tasks
+					Tarefas
 				</MenuButton>
 				<MenuButton
 					active={currentRout === 'About'}
 					onPress={handlePressMenuAbout}
 					icon='info'>
-					About
+					Sobre
 				</MenuButton>
 			</VStack>
 			<Center>

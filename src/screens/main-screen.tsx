@@ -10,17 +10,17 @@ import MastHead from '../components/masthead'
 const initialData = [
 	{
 		id: shortid.generate(),
-		subject: 'Exmaple',
+		subject: 'Exemplo',
 		done: false,
 	},
 	{
 		id: shortid.generate(),
-		subject: 'Task item',
+		subject: 'Tarefa 1',
 		done: false,
 	},
 	{
 		id: shortid.generate(),
-		subject: 'Task example',
+		subject: 'Tarefa exemplo',
 		done: false,
 	},
 ]

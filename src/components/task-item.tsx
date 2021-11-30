@@ -109,7 +109,7 @@ const TaskItem = (props: Props) => {
 				</Box>
 				{isEditing ? (
 					<Input
-						placeholder='Task Item'
+						placeholder='Tarefa'
 						value={subject}
 						variant='unstyled'
 						fontSize={19}
